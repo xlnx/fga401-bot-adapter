@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "fga401-bot-adapter"
+version = "0.1.0"
+description = ""
+authors = ["koishi <qwq@koishi.top>"]
+readme = "README.md"
+packages = [
+  {include = "fga401_bot_adapter", from = "src"},
+  {include = "tableturf", from = "third_party/auto_tableturf"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+tableturf-replica = {git = "https://github.com/xlnx/tableturf-replica.git", rev = "dev/2"}
+numpy = "1.23.3"
+opencv-python = "4.5.5.62"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib", "--ignore=third_party"]
+pythonpath = ["src"]
+python_files = ["tests/*.py"]
+
+[tool.poetry.scripts]
+serve = "fga401_bot_adapter.main:main"

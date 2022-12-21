@@ -1,0 +1,3 @@
+[submodule "third_party/auto_tableturf"]
+	path = third_party/auto_tableturf
+	url = https://github.com/fga401/AutoTableTurf.git
