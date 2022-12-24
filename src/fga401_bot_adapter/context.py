@@ -66,6 +66,7 @@ class Context:
     )
 
   def cvt_step_to_web(self, status: Status, step: Step) -> Dict[str, Any]:
+    params = {}
     if step.action != Step.Action.Skip:
       rotation = (4 - step.rotate) % 4
       pattern = step.card.get_pattern(step.rotate)
