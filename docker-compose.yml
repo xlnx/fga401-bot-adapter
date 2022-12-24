@@ -1,0 +1,8 @@
+services:
+  bot:
+    build:
+      context: .
+      network: host
+    ports:
+      - "5140:5140"
+    command: poetry run serve

@@ -248,7 +248,7 @@ websockets = "*"
 type = "git"
 url = "https://github.com/xlnx/tableturf-replica.git"
 reference = "master"
-resolved_reference = "e73e4644cbc5ac6cae97dea989477f2c0e45b05d"
+resolved_reference = "0c5f5352a509d4b5a693c8298ea5cc2e9b7bca77"
 
 [[package]]
 name = "tomli"
