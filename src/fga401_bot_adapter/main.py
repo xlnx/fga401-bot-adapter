@@ -3,7 +3,9 @@ import logging
 from tableturf.ai.alpha.alpha import logger
 logger.setLevel(logging.INFO)
 
+import os
 import json
+import ssl
 from tableturf_replica import bot
 from tableturf.ai.alpha import Alpha
 from fga401_bot_adapter.context import Context
@@ -48,5 +50,9 @@ class AlphaBot:
 
 
 def main():
-  AlphaBot().serve(5140)
+  ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+  certchain = os.path.abspath('../.ssl/fullchain.pem')
+  privkey = os.path.abspath('../.ssl/privkey.pem')
+  ctx.load_cert_chain(certchain, privkey)
+  AlphaBot().serve(5140, ssl=ctx)
 
