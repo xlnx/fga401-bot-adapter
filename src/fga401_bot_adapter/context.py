@@ -66,7 +66,14 @@ class Context:
     )
 
   def cvt_step_to_web(self, status: Status, step: Step) -> Dict[str, Any]:
-    params = {}
+    move = {
+      'action': {
+        Step.Action.Skip: 'discard',
+        Step.Action.Place: 'trivial',
+        Step.Action.SpecialAttack: 'special',
+      } [step.action],
+      'hand': status.hands.index(step.card),
+    }
     if step.action != Step.Action.Skip:
       rotation = (4 - step.rotate) % 4
       pattern = step.card.get_pattern(step.rotate)
@@ -83,16 +90,8 @@ class Context:
         [x-rdx, y-rdy],
         [x-dy, y-rdx],
       ] [rotation]
-      params = {
+      move['params'] = {
         'rotation': rotation,
         'position': {'x':x,'y':y},
       }
-    return {
-      'action': {
-        Step.Action.Skip: 'discard',
-        Step.Action.Place: 'trivial',
-        Step.Action.SpecialAttack: 'special',
-      } [step.action],
-      'hand': status.hands.index(step.card),
-      'params': params,
-    }
+    return move
