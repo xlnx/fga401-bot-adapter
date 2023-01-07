@@ -11,7 +11,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-tableturf-replica = {git = "https://github.com/xlnx/tableturf-replica.git", rev = "master"}
+tableturf-replica = {git = "https://github.com/xlnx/tableturf-replica.git", rev = "b7151d063bab11ad2497347444b0976fdeb3e4e6"}
 numpy = "1.23.3"
 opencv-python = "4.5.5.62"
 

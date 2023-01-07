@@ -19,7 +19,7 @@ class AlphaBot:
     'name': 'Alpha',
     'support': {
       'stages': [],
-      'anyDeck': True,
+      'decks': [],
     }
   }
 
@@ -42,11 +42,6 @@ class AlphaBot:
 
   def finalize(self, params):
     pass
-
-  @staticmethod
-  def select_deck(params):
-    print(params)
-    return params['deck']
 
 
 def main():
