@@ -21,8 +21,8 @@ class CardMeta:
 @typechecked
 def get_default_cards() -> Dict[int, Card]:
   cards = {}
-  for i in range(1, 163):
-    info = api.getCardById(i)
+  for info in api.getCards():
+    i = info['id']
     li = cvt_rect_from_web_format(info)
 
     if isinstance(li[0][0], Grid):
